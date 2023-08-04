@@ -1,0 +1,39 @@
+"""A format for expressing an ordered list of integers is to use a comma separated list of either
+
+individual integers
+or a range of integers denoted by the starting integer separated from the end integer in the range by a dash, '-'. 
+The range includes all integers in the interval including both endpoints. It is not considered a range unless it spans at least 3 numbers. For example "12,13,15-17"
+Complete the solution so that it takes a list of integers in increasing order and returns a correctly formatted string in the range format.
+
+Solution:"""
+
+def solution(args):
+    # using two pointers i and j to walk down the list
+    result = ''
+    j = 0
+    i = 0
+    
+    while j < len(args):
+        
+        if (j+1) < len(args) and (args[j] + 1 == args[j+1]):
+            j+=1
+        
+        else:
+            gap = j - i
+            
+            if gap <= 1:
+                if args[j]-1==args[j-1]:
+                    
+                    result += str(args[j-1]) + ','
+                    
+                result += str(args[j]) + ','
+                j+=1
+                i = j
+                
+            else:
+                result += str(args[i]) + '-' + str(args[j]) +","
+                j+=1
+                i=j
+    
+    return result[:-1]
+
