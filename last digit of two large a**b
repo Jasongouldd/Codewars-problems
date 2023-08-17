@@ -1,0 +1,12 @@
+Define a function that takes in two non-negative integers a and b and returns the 
+last decimal digit of a**b. Note that a and b may be very large!
+
+
+solution: much faster than pow
+
+def last_digit(n1, n2):
+    if n1%10 == 0:
+        x = 0
+    else:
+        x = ((n1%100)**(n2%100))%10
+    return x
