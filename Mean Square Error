@@ -1,0 +1,23 @@
+Complete the function that
+
+accepts two integer arrays of equal length
+compares the value each member in one array to the corresponding member in the other
+squares the absolute value difference between those two values
+and returns the average of those squared absolute value difference between each member pair.
+
+[1, 2, 3], [4, 5, 6]              -->   9   because (9 + 9 + 9) / 3
+
+Solution:
+
+def solution(array_a, array_b):
+        """
+    Calculate the mean squared difference between corresponding elements of two arrays.
+
+    Parameters:
+    array_a (list): First array.
+    array_b (list): Second array.
+
+    Returns:
+    float: Mean squared difference.
+    """
+    return sum([(array_a[x] - array_b[x])**2 for x in range(len(array_a))]) / len(array_a)
